@@ -26,7 +26,7 @@ export default function Login() {
   return (
     <div className="admin login-page">
       <form className="card login-card pop-in" onSubmit={submit}>
-        <h1 className="logo small">RAGNAROK</h1>
+        <h1 className="logo small">NIBELUNGEN</h1>
         <p className="muted">Host dashboard</p>
         {!isConfigured && <p className="error-text">Set VITE_SUPABASE_URL and VITE_SUPABASE_ANON_KEY first.</p>}
         <label>
