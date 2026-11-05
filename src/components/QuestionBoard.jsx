@@ -92,7 +92,7 @@ export default function QuestionBoard({ question: q, phase, answerKey, myAnswer,
       )}
 
       {q.type === 'ordering' && (() => {
-        const shown = myAnswer?.answer?.order ?? (revealed && answerKey?.order) ?? order
+        const shown = myAnswer?.answer?.order ?? (revealed ? answerKey?.order : null) ?? order
         const byId = Object.fromEntries(q.options.map((o) => [o.id, o]))
         const move = (i, d) => {
           sfx.select()
@@ -128,7 +128,7 @@ export default function QuestionBoard({ question: q, phase, answerKey, myAnswer,
 
       {q.type === 'matching' && (() => {
         const rights = q.extra ?? []
-        const shown = myAnswer?.answer?.pairs ?? (revealed && answerKey?.pairs) ?? pairs
+        const shown = myAnswer?.answer?.pairs ?? (revealed ? answerKey?.pairs : null) ?? pairs
         const rText = Object.fromEntries(rights.map((r) => [r.id, r.text]))
         const done = q.options.every((o) => pairs[o.id])
         return (

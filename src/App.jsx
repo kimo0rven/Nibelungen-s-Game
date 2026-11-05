@@ -10,6 +10,7 @@ import QuizList from './pages/admin/QuizList'
 import QuizEditor from './pages/admin/QuizEditor'
 import CardLibrary from './pages/admin/CardLibrary'
 import HostGame from './pages/admin/HostGame'
+import ErrorBoundary from './components/ErrorBoundary'
 import Embers from './components/Embers'
 
 // Embers drift behind the player-facing and host-game screens only.
@@ -24,6 +25,7 @@ export default function App() {
     <AuthProvider>
       <BrowserRouter>
         <Ambient />
+        <ErrorBoundary>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/play/:code" element={<Play />} />
@@ -39,6 +41,7 @@ export default function App() {
           </Route>
           <Route path="*" element={<Home />} />
         </Routes>
+        </ErrorBoundary>
       </BrowserRouter>
     </AuthProvider>
   )
